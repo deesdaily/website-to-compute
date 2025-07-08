@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dee's Daily Journal</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito&family=Rubik&family=Inconsolata&family=Quicksand&family=Playfair+Display&display=swap" rel="stylesheet" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="icons/icon-192.png" />
+  <meta name="theme-color" content="#3a86ff" />
+</head>
+<body>
+
+  <!-- 🔐 LOGIN SCREEN -->
+  <div class="login-screen" id="login-screen">
+    <h1>🔐 Dee's Daily Journal</h1>
+    <input type="text" id="login-username" placeholder="Username" required />
+    <input type="password" id="login-password" placeholder="Password" required />
+    <button id="login-btn">Login</button>
+    <p id="login-status"></p>
+  </div>
+
+  <!-- 📝 MAIN APP -->
+  <div id="app" class="hidden">
+
+    <!-- Top bar -->
+    <div class="top-bar">
+      <h2>📔 Welcome, <span id="user-label"></span></h2>
+      <button id="toggle-timeline">🗂 Timeline</button>
+      <button id="logout-btn">Logout</button>
+    </div>
+
+    <!-- Entry Form -->
+    <form id="entry-form">
+      <input type="text" id="entry-title" placeholder="Title" required />
+      <textarea id="entry-content" placeholder="Write your thoughts..." required></textarea>
+      
+      <div class="form-row">
+        <input type="datetime-local" id="entry-date" />
+        <button type="button" id="mic-btn">🎤</button>
+      </div>
+
+      <button type="submit">Save Entry</button>
+    </form>
+
+    <!-- Search and Filters -->
+    <div class="search-filter">
+      <input type="text" id="search" placeholder="Search text..." />
+      <input type="date" id="filter-date" />
+    </div>
+
+    <!-- Settings Panel -->
+    <div class="settings">
+      <label for="theme-toggle">🌙 Theme:</label>
+      <select id="theme-toggle">
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+      </select>
+
+      <label for="color-picker">🎨 Background:</label>
+      <input type="color" id="color-picker" value="#ffffff" />
+
+      <label for="font-select">🖋 Font:</label>
+      <select id="font-select">
+        <option value="Nunito">Nunito</option>
+        <option value="Rubik">Rubik</option>
+        <option value="Inconsolata">Inconsolata</option>
+        <option value="Quicksand">Quicksand</option>
+        <option value="Playfair Display">Playfair Display</option>
+      </select>
+    </div>
+
+    <!-- Backup/Restore -->
+    <div class="backup-tools">
+      <button id="backup-btn">⬇ Backup</button>
+      <input type="file" id="restore-file" accept=".json" />
+      <button id="restore-btn">⬆ Restore</button>
+    </div>
+
+    <!-- Entries -->
+    <h3>📒 Your Entries</h3>
+    <div id="entries-list"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
